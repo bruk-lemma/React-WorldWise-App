@@ -7,6 +7,7 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
+import CountryList from "./components/CountryList";
 
 const BASE_URL = "http://127.0.0.1:8000";
 
@@ -43,7 +44,10 @@ export default function App() {
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
           />
-          <Route path="contries" element={<p>List of contries</p>} />
+          <Route
+            path="contries"
+            element={<CountryList cities={cities} isLoading={isLoading} />}
+          />
           <Route path="form" element={<p>form element</p>} />
         </Route>
         <Route path="product" element={<Product />} />
