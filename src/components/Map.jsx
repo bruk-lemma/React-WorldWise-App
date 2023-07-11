@@ -27,7 +27,7 @@ export default function Map() {
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
   console.log(lat, lng);
-  // console.log(cities);
+  //console.log(cities);
 
   useEffect(
     function () {
@@ -35,11 +35,22 @@ export default function Map() {
     },
     [lat, lng]
   );
+
+  useEffect(
+    function () {
+      if (geoLocationPosition)
+        setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
+    },
+    [geoLocationPosition]
+  );
+
   return (
     <div className={styles.mapContainer}>
-      <Button type="position" onClick={getPosition}>
-        {isLoadingPosition ? "Loading..." : "Use your position"}
-      </Button>
+      {!geoLocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "Loading..." : "Use your position"}
+        </Button>
+      )}
       <MapContainer
         center={mapPosition}
         zoom={6}
@@ -64,6 +75,7 @@ export default function Map() {
         <ChangeCenter position={mapPosition} />
         <DetectClick />
       </MapContainer>
+
       {/* <h1>Map</h1>
       <h1>
         Position: {lat},{lng}
