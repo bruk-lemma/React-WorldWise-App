@@ -1,7 +1,6 @@
 {
   "name": "worldwise",
   "private": true,
-  "homepage": "https://bruk-lemma.github.io/React-WorldWise-App",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
