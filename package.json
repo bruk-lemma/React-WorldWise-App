@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "server": "json-server --watch data/cities.json --port 8001 --delay 500",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.26.0",
